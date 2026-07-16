@@ -1,7 +1,7 @@
 {
   "id": "plugin-color-palette",
   "name": "调色板",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "颜色选择、多格式转换与配色方案生成工具",
   "author": "ToolBox Team",
   "entry": "dist/index.js",
