@@ -1,6 +1,6 @@
 {
   "name": "plugin-color-palette",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "颜色选择、多格式转换与配色方案生成工具",
   "main": "dist/index.js",
   "type": "module",
