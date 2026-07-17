@@ -657,31 +657,8 @@
       ReactDOM.render(React.createElement(PluginApp), root);
     }
   }
-  function registerPlugin(api) {
-    const { registerTool, registerSidebarButton, openPluginWindow } = api;
-    registerTool({
-      id: "plugin-color-palette",
-      name: "调色板",
-      iconName: "Palette",
-      color: "#f59e0b",
-      textColor: "#ffffff",
-      path: "/tools/plugin-color-palette",
-      component: ToolPanel
-    });
-    registerSidebarButton({
-      id: "plugin-color-palette-btn",
-      icon: "Palette",
-      label: "调色板",
-      onClick: () => {
-        openPluginWindow == null ? void 0 : openPluginWindow("plugin-color-palette");
-      }
-    });
-  }
   const pluginData = window.__PLUGIN_DATA__;
   if (pluginData) {
     renderStandalone();
   }
-  module.exports = {
-    register: registerPlugin
-  };
 })();
