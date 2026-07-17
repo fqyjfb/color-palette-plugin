@@ -1,10 +1,9 @@
+import React, { useState, useCallback, useEffect, FC, ChangeEvent, KeyboardEvent, CSSProperties } from 'react';
 import {
   hexToRgb, rgbToHsl, rgbToHsv, isValidHex,
   generateAllSchemes, basicColors, popularPalettes,
   RGB, HSL, HSV, ColorScheme
 } from './colorUtils';
-
-const { React } = window as any;
 
 interface ToastItem {
   id: string;
@@ -13,9 +12,9 @@ interface ToastItem {
 }
 
 const useToast = () => {
-  const [toasts, setToasts] = React.useState<ToastItem[]>([]);
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
 
-  const addToast = React.useCallback((toast: Omit<ToastItem, 'id'>) => {
+  const addToast = useCallback((toast: Omit<ToastItem, 'id'>) => {
     const id = Date.now().toString() + Math.random().toString(36).slice(2, 6);
     setToasts((prev: ToastItem[]) => [...prev, { ...toast, id }]);
     setTimeout(() => {
@@ -26,7 +25,7 @@ const useToast = () => {
   return { toasts, addToast };
 };
 
-const ToastContainer: React.FC<{ toasts: ToastItem[] }> = ({ toasts }) => {
+const ToastContainer: FC<{ toasts: ToastItem[] }> = ({ toasts }) => {
   if (toasts.length === 0) return null;
 
   const colorMap: Record<string, string> = {
@@ -50,7 +49,7 @@ const ToastContainer: React.FC<{ toasts: ToastItem[] }> = ({ toasts }) => {
   );
 };
 
-const PaletteIcon: React.FC<{ className?: string }> = ({ className }) => (
+const PaletteIcon: FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
     <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
@@ -60,33 +59,33 @@ const PaletteIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-const CopyIcon: React.FC<{ className?: string }> = ({ className }) => (
+const CopyIcon: FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
   </svg>
 );
 
-const ClipboardIcon: React.FC<{ className?: string }> = ({ className }) => (
+const ClipboardIcon: FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
     <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
   </svg>
 );
 
-const ToolPanel: React.FC = () => {
+const ToolPanel: FC = () => {
   const { toasts, addToast } = useToast();
-  const [hex, setHex] = React.useState('#845EC2');
-  const [inputValue, setInputValue] = React.useState('#845EC2');
-  const [rgb, setRgb] = React.useState<RGB>({ r: 132, g: 94, b: 194 });
-  const [hsl, setHsl] = React.useState<HSL>({ h: 264, s: 46, l: 56 });
-  const [hsv, setHsv] = React.useState<HSV>({ h: 264, s: 52, v: 76 });
-  const [colorSchemes, setColorSchemes] = React.useState<ColorScheme[]>([]);
-  const [activeSchemeId, setActiveSchemeId] = React.useState<string>('generic-gradient');
+  const [hex, setHex] = useState('#845EC2');
+  const [inputValue, setInputValue] = useState('#845EC2');
+  const [rgb, setRgb] = useState<RGB>({ r: 132, g: 94, b: 194 });
+  const [hsl, setHsl] = useState<HSL>({ h: 264, s: 46, l: 56 });
+  const [hsv, setHsv] = useState<HSV>({ h: 264, s: 52, v: 76 });
+  const [colorSchemes, setColorSchemes] = useState<ColorScheme[]>([]);
+  const [activeSchemeId, setActiveSchemeId] = useState<string>('generic-gradient');
 
-  React.useEffect(() => setColorSchemes(generateAllSchemes(hex)), [hex]);
+  useEffect(() => setColorSchemes(generateAllSchemes(hex)), [hex]);
 
-  const handleCopy = React.useCallback((text: string) => {
+  const handleCopy = useCallback((text: string) => {
     if (!text) {
       addToast({ message: '没有可复制的内容', type: 'warning' });
       return;
@@ -98,7 +97,7 @@ const ToolPanel: React.FC = () => {
     });
   }, [addToast]);
 
-  const updateColor = React.useCallback((newHex: string) => {
+  const updateColor = useCallback((newHex: string) => {
     const cleanedHex = newHex.trim().replace(/[^0-9a-fA-F#]/g, '');
     if (!isValidHex(cleanedHex)) {
       return;
@@ -112,7 +111,7 @@ const ToolPanel: React.FC = () => {
     setHsv(rgbToHsv(rgbValue.r, rgbValue.g, rgbValue.b));
   }, []);
 
-  const handleInputChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const allowed = /^#?[0-9a-fA-F]*$/;
     if (allowed.test(value)) {
@@ -129,7 +128,7 @@ const ToolPanel: React.FC = () => {
     }
   }, [inputValue, hex, updateColor, addToast]);
 
-  const handleInputKeyDown = React.useCallback((e: React.KeyboardEvent) => {
+  const handleInputKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleInputBlur();
     }
@@ -260,7 +259,7 @@ const ToolPanel: React.FC = () => {
                   <button
                     key={`${color}-${index}`}
                     className="item-color"
-                    style={{ '--color': color } as React.CSSProperties}
+                    style={{ '--color': color } as CSSProperties}
                     data-color={color}
                     onClick={() => handleColorCardClick(color)}
                   />
@@ -298,7 +297,7 @@ const ToolPanel: React.FC = () => {
                       <button
                         key={`${palette.name}-${color}-${index}`}
                         className="item-color"
-                        style={{ '--color': color } as React.CSSProperties}
+                        style={{ '--color': color } as CSSProperties}
                         data-color={color}
                         onClick={() => handleColorCardClick(color)}
                       />

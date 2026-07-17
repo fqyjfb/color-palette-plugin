@@ -436,7 +436,7 @@
     react.exports = react_production;
   }
   var reactExports = react.exports;
-  const React$3 = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
+  const React$2 = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
   var client = { exports: {} };
   var reactDomClient_production = {};
   var scheduler = { exports: {} };
@@ -714,7 +714,7 @@
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
-  var React$2 = reactExports;
+  var React$1 = reactExports;
   function formatProdErrorMessage$1(code) {
     var url = "https://react.dev/errors/" + code;
     if (1 < arguments.length) {
@@ -753,7 +753,7 @@
       implementation
     };
   }
-  var ReactSharedInternals$1 = React$2.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+  var ReactSharedInternals$1 = React$1.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
   function getCrossOriginStringAs(as, input) {
     if ("font" === as) return "";
     if ("string" === typeof input)
@@ -879,7 +879,7 @@
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
-  var Scheduler = schedulerExports, React$1 = reactExports, ReactDOM$1 = reactDomExports;
+  var Scheduler = schedulerExports, React = reactExports, ReactDOM$1 = reactDomExports;
   function formatProdErrorMessage(code) {
     var url = "https://react.dev/errors/" + code;
     if (1 < arguments.length) {
@@ -1055,7 +1055,7 @@
       }
     return null;
   }
-  var isArrayImpl = Array.isArray, ReactSharedInternals = React$1.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM$1.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, sharedNotPendingObject = {
+  var isArrayImpl = Array.isArray, ReactSharedInternals = React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM$1.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, sharedNotPendingObject = {
     pending: false,
     data: null,
     method: null,
@@ -12295,7 +12295,7 @@
       0 === i && attemptExplicitHydrationTarget(target);
     }
   };
-  var isomorphicReactPackageVersion$jscomp$inline_1840 = React$1.version;
+  var isomorphicReactPackageVersion$jscomp$inline_1840 = React.version;
   if ("19.2.7" !== isomorphicReactPackageVersion$jscomp$inline_1840)
     throw Error(
       formatProdErrorMessage(
@@ -12792,10 +12792,9 @@
     { name: "清新粉", description: "社交、女性向应用", colors: ["#ec4899", "#db2777", "#be185d", "#9d174d", "#831843"] },
     { name: "专业灰", description: "商务、金融类应用", colors: ["#64748b", "#475569", "#334155", "#1e293b", "#0f172a"] }
   ];
-  const { React } = window;
   const useToast = () => {
-    const [toasts, setToasts] = React.useState([]);
-    const addToast = React.useCallback((toast) => {
+    const [toasts, setToasts] = reactExports.useState([]);
+    const addToast = reactExports.useCallback((toast) => {
       const id = Date.now().toString() + Math.random().toString(36).slice(2, 6);
       setToasts((prev) => [...prev, { ...toast, id }]);
       setTimeout(() => {
@@ -12812,7 +12811,7 @@
       warning: "bg-amber-500",
       info: "bg-blue-600"
     };
-    return /* @__PURE__ */ React.createElement("div", { className: "fixed top-4 right-4 z-50 flex flex-col gap-2" }, toasts.map((toast) => /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React$2.createElement("div", { className: "fixed top-4 right-4 z-50 flex flex-col gap-2" }, toasts.map((toast) => /* @__PURE__ */ React$2.createElement(
       "div",
       {
         key: toast.id,
@@ -12821,20 +12820,20 @@
       toast.message
     )));
   };
-  const PaletteIcon = ({ className }) => /* @__PURE__ */ React.createElement("svg", { className, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("circle", { cx: "13.5", cy: "6.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React.createElement("circle", { cx: "17.5", cy: "10.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React.createElement("circle", { cx: "8.5", cy: "7.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React.createElement("circle", { cx: "6.5", cy: "12.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React.createElement("path", { d: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" }));
-  const CopyIcon = ({ className }) => /* @__PURE__ */ React.createElement("svg", { className, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("rect", { x: "9", y: "9", width: "13", height: "13", rx: "2", ry: "2" }), /* @__PURE__ */ React.createElement("path", { d: "M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" }));
-  const ClipboardIcon = ({ className }) => /* @__PURE__ */ React.createElement("svg", { className, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" }), /* @__PURE__ */ React.createElement("rect", { x: "8", y: "2", width: "8", height: "4", rx: "1", ry: "1" }));
+  const PaletteIcon = ({ className }) => /* @__PURE__ */ React$2.createElement("svg", { className, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React$2.createElement("circle", { cx: "13.5", cy: "6.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React$2.createElement("circle", { cx: "17.5", cy: "10.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React$2.createElement("circle", { cx: "8.5", cy: "7.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React$2.createElement("circle", { cx: "6.5", cy: "12.5", r: ".5", fill: "currentColor" }), /* @__PURE__ */ React$2.createElement("path", { d: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" }));
+  const CopyIcon = ({ className }) => /* @__PURE__ */ React$2.createElement("svg", { className, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React$2.createElement("rect", { x: "9", y: "9", width: "13", height: "13", rx: "2", ry: "2" }), /* @__PURE__ */ React$2.createElement("path", { d: "M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" }));
+  const ClipboardIcon = ({ className }) => /* @__PURE__ */ React$2.createElement("svg", { className, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React$2.createElement("path", { d: "M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" }), /* @__PURE__ */ React$2.createElement("rect", { x: "8", y: "2", width: "8", height: "4", rx: "1", ry: "1" }));
   const ToolPanel = () => {
     const { toasts, addToast } = useToast();
-    const [hex, setHex] = React.useState("#845EC2");
-    const [inputValue, setInputValue] = React.useState("#845EC2");
-    const [rgb, setRgb] = React.useState({ r: 132, g: 94, b: 194 });
-    const [hsl, setHsl] = React.useState({ h: 264, s: 46, l: 56 });
-    const [hsv, setHsv] = React.useState({ h: 264, s: 52, v: 76 });
-    const [colorSchemes, setColorSchemes] = React.useState([]);
-    const [activeSchemeId, setActiveSchemeId] = React.useState("generic-gradient");
-    React.useEffect(() => setColorSchemes(generateAllSchemes(hex)), [hex]);
-    const handleCopy = React.useCallback((text) => {
+    const [hex, setHex] = reactExports.useState("#845EC2");
+    const [inputValue, setInputValue] = reactExports.useState("#845EC2");
+    const [rgb, setRgb] = reactExports.useState({ r: 132, g: 94, b: 194 });
+    const [hsl, setHsl] = reactExports.useState({ h: 264, s: 46, l: 56 });
+    const [hsv, setHsv] = reactExports.useState({ h: 264, s: 52, v: 76 });
+    const [colorSchemes, setColorSchemes] = reactExports.useState([]);
+    const [activeSchemeId, setActiveSchemeId] = reactExports.useState("generic-gradient");
+    reactExports.useEffect(() => setColorSchemes(generateAllSchemes(hex)), [hex]);
+    const handleCopy = reactExports.useCallback((text) => {
       if (!text) {
         addToast({ message: "没有可复制的内容", type: "warning" });
         return;
@@ -12845,7 +12844,7 @@
         addToast({ message: "复制失败", type: "error" });
       });
     }, [addToast]);
-    const updateColor = React.useCallback((newHex) => {
+    const updateColor = reactExports.useCallback((newHex) => {
       const cleanedHex = newHex.trim().replace(/[^0-9a-fA-F#]/g, "");
       if (!isValidHex(cleanedHex)) {
         return;
@@ -12858,14 +12857,14 @@
       setHsl(rgbToHsl(rgbValue.r, rgbValue.g, rgbValue.b));
       setHsv(rgbToHsv(rgbValue.r, rgbValue.g, rgbValue.b));
     }, []);
-    const handleInputChange = React.useCallback((e) => {
+    const handleInputChange = reactExports.useCallback((e) => {
       const value = e.target.value;
       const allowed = /^#?[0-9a-fA-F]*$/;
       if (allowed.test(value)) {
         setInputValue(value);
       }
     }, []);
-    const handleInputBlur = React.useCallback(() => {
+    const handleInputBlur = React$2.useCallback(() => {
       if (isValidHex(inputValue)) {
         updateColor(inputValue);
       } else if (inputValue.length > 0) {
@@ -12873,12 +12872,12 @@
         addToast({ message: "无效的颜色值", type: "error" });
       }
     }, [inputValue, hex, updateColor, addToast]);
-    const handleInputKeyDown = React.useCallback((e) => {
+    const handleInputKeyDown = reactExports.useCallback((e) => {
       if (e.key === "Enter") {
         handleInputBlur();
       }
     }, [handleInputBlur]);
-    const handlePaste = React.useCallback(async () => {
+    const handlePaste = React$2.useCallback(async () => {
       try {
         const text = await navigator.clipboard.readText();
         const cleaned = text.trim().replace(/[^0-9a-fA-F#]/g, "");
@@ -12892,11 +12891,11 @@
         addToast({ message: "粘贴失败", type: "error" });
       }
     }, [updateColor, addToast]);
-    const handleColorCardClick = React.useCallback((color) => {
+    const handleColorCardClick = React$2.useCallback((color) => {
       handleCopy(color);
     }, [handleCopy]);
     const currentScheme = colorSchemes.find((s) => s.id === activeSchemeId);
-    return /* @__PURE__ */ React.createElement("div", { className: "h-full flex flex-col p-4 overflow-hidden" }, /* @__PURE__ */ React.createElement(ToastContainer, { toasts }), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-3 mb-4" }, /* @__PURE__ */ React.createElement(PaletteIcon, { className: "w-6 h-6 text-gray-600 dark:text-gray-400" }), /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-semibold text-gray-800 dark:text-gray-200" }, "调色板")), /* @__PURE__ */ React.createElement("div", { className: "flex-1 flex gap-4 overflow-hidden" }, /* @__PURE__ */ React.createElement("div", { className: "w-80 flex-shrink-0 flex flex-col gap-4 overflow-y-auto" }, /* @__PURE__ */ React.createElement("div", { className: "rounded-lg overflow-hidden shadow-lg", style: { backgroundColor: hex } }, /* @__PURE__ */ React.createElement("div", { className: "p-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "flex-1 relative" }, /* @__PURE__ */ React.createElement(
+    return /* @__PURE__ */ React$2.createElement("div", { className: "h-full flex flex-col p-4 overflow-hidden" }, /* @__PURE__ */ React$2.createElement(ToastContainer, { toasts }), /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center gap-3 mb-4" }, /* @__PURE__ */ React$2.createElement(PaletteIcon, { className: "w-6 h-6 text-gray-600 dark:text-gray-400" }), /* @__PURE__ */ React$2.createElement("h2", { className: "text-lg font-semibold text-gray-800 dark:text-gray-200" }, "调色板")), /* @__PURE__ */ React$2.createElement("div", { className: "flex-1 flex gap-4 overflow-hidden" }, /* @__PURE__ */ React$2.createElement("div", { className: "w-80 flex-shrink-0 flex flex-col gap-4 overflow-y-auto" }, /* @__PURE__ */ React$2.createElement("div", { className: "rounded-lg overflow-hidden shadow-lg", style: { backgroundColor: hex } }, /* @__PURE__ */ React$2.createElement("div", { className: "p-4" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex-1 relative" }, /* @__PURE__ */ React$2.createElement(
       "input",
       {
         type: "text",
@@ -12908,15 +12907,15 @@
         placeholder: "#845EC2",
         maxLength: 7
       }
-    ), /* @__PURE__ */ React.createElement(
+    ), /* @__PURE__ */ React$2.createElement(
       "button",
       {
         onClick: handlePaste,
         className: "absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors",
         title: "粘贴"
       },
-      /* @__PURE__ */ React.createElement(ClipboardIcon, { className: "w-3.5 h-3.5 text-gray-500 dark:text-gray-400" })
-    )), /* @__PURE__ */ React.createElement(
+      /* @__PURE__ */ React$2.createElement(ClipboardIcon, { className: "w-3.5 h-3.5 text-gray-500 dark:text-gray-400" })
+    )), /* @__PURE__ */ React$2.createElement(
       "input",
       {
         type: "color",
@@ -12924,12 +12923,12 @@
         onChange: (e) => updateColor(e.target.value),
         className: "w-10 h-10 rounded-lg cursor-pointer border-0"
       }
-    )))), /* @__PURE__ */ React.createElement("div", { className: "flex flex-col gap-2" }, [
+    )))), /* @__PURE__ */ React$2.createElement("div", { className: "flex flex-col gap-2" }, [
       { label: "HEX", value: hex },
       { label: "RGB", value: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` },
       { label: "HSL", value: `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)` },
       { label: "HSV", value: `hsv(${hsv.h}, ${hsv.s}%, ${hsv.v}%)` }
-    ].map((item) => /* @__PURE__ */ React.createElement("div", { key: item.label, className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-2" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React.createElement("span", { className: "text-xs text-gray-500 dark:text-gray-400 w-8" }, item.label), /* @__PURE__ */ React.createElement("div", { className: "flex-1 relative" }, /* @__PURE__ */ React.createElement(
+    ].map((item) => /* @__PURE__ */ React$2.createElement("div", { key: item.label, className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-2" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-xs text-gray-500 dark:text-gray-400 w-8" }, item.label), /* @__PURE__ */ React$2.createElement("div", { className: "flex-1 relative" }, /* @__PURE__ */ React$2.createElement(
       "input",
       {
         type: "text",
@@ -12937,15 +12936,15 @@
         readOnly: true,
         className: "w-full px-2 py-1.5 bg-white dark:bg-gray-600 rounded text-xs font-mono text-gray-800 dark:text-gray-200 focus:outline-none"
       }
-    ), /* @__PURE__ */ React.createElement(
+    ), /* @__PURE__ */ React$2.createElement(
       "button",
       {
         onClick: () => handleCopy(item.value),
         className: "absolute right-1 top-1/2 -translate-y-1/2 p-0.5 rounded hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors",
         title: "复制"
       },
-      /* @__PURE__ */ React.createElement(CopyIcon, { className: "w-3 h-3 text-gray-500 dark:text-gray-400" })
-    )))))), /* @__PURE__ */ React.createElement("div", { className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-3" }, /* @__PURE__ */ React.createElement("h3", { className: "text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2" }, "配色方案"), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-1.5" }, colorSchemes.map((scheme) => /* @__PURE__ */ React.createElement(
+      /* @__PURE__ */ React$2.createElement(CopyIcon, { className: "w-3 h-3 text-gray-500 dark:text-gray-400" })
+    )))))), /* @__PURE__ */ React$2.createElement("div", { className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-3" }, /* @__PURE__ */ React$2.createElement("h3", { className: "text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2" }, "配色方案"), /* @__PURE__ */ React$2.createElement("div", { className: "flex flex-wrap gap-1.5" }, colorSchemes.map((scheme) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: scheme.id,
@@ -12953,7 +12952,7 @@
         className: `px-2.5 py-1 rounded-lg text-xs transition-colors ${activeSchemeId === scheme.id ? "bg-orange-500 text-white" : "bg-white dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-500"}`
       },
       scheme.name
-    ))))), /* @__PURE__ */ React.createElement("div", { className: "flex-1 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-auto p-4" }, currentScheme && /* @__PURE__ */ React.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-3" }, /* @__PURE__ */ React.createElement("span", { className: "text-base font-medium text-gray-800 dark:text-gray-200" }, currentScheme.name), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-gray-500 dark:text-gray-400" }, currentScheme.description)), /* @__PURE__ */ React.createElement("div", { className: "container-items" }, currentScheme.colors.map((color, index2) => /* @__PURE__ */ React.createElement(
+    ))))), /* @__PURE__ */ React$2.createElement("div", { className: "flex-1 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-auto p-4" }, currentScheme && /* @__PURE__ */ React$2.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center justify-between mb-3" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-base font-medium text-gray-800 dark:text-gray-200" }, currentScheme.name), /* @__PURE__ */ React$2.createElement("span", { className: "text-xs text-gray-500 dark:text-gray-400" }, currentScheme.description)), /* @__PURE__ */ React$2.createElement("div", { className: "container-items" }, currentScheme.colors.map((color, index2) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: `${color}-${index2}`,
@@ -12962,7 +12961,7 @@
         "data-color": color,
         onClick: () => handleColorCardClick(color)
       }
-    )))), /* @__PURE__ */ React.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "基础颜色"), /* @__PURE__ */ React.createElement("div", { className: "container-items" }, basicColors.map((color) => /* @__PURE__ */ React.createElement(
+    )))), /* @__PURE__ */ React$2.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React$2.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "基础颜色"), /* @__PURE__ */ React$2.createElement("div", { className: "container-items" }, basicColors.map((color) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: color.hex,
@@ -12971,7 +12970,7 @@
         "data-color": color.name,
         onClick: () => updateColor(color.hex)
       }
-    )))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "流行配色"), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3" }, popularPalettes.map((palette) => /* @__PURE__ */ React.createElement("div", { key: palette.name, className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-3" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-2" }, /* @__PURE__ */ React.createElement("span", { className: "text-sm font-medium text-gray-700 dark:text-gray-300" }, palette.name)), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-gray-500 dark:text-gray-400 mb-2" }, palette.description), /* @__PURE__ */ React.createElement("div", { className: "container-items" }, palette.colors.map((color, index2) => /* @__PURE__ */ React.createElement(
+    )))), /* @__PURE__ */ React$2.createElement("div", null, /* @__PURE__ */ React$2.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "流行配色"), /* @__PURE__ */ React$2.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3" }, popularPalettes.map((palette) => /* @__PURE__ */ React$2.createElement("div", { key: palette.name, className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-3" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center justify-between mb-2" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-sm font-medium text-gray-700 dark:text-gray-300" }, palette.name)), /* @__PURE__ */ React$2.createElement("div", { className: "text-xs text-gray-500 dark:text-gray-400 mb-2" }, palette.description), /* @__PURE__ */ React$2.createElement("div", { className: "container-items" }, palette.colors.map((color, index2) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: `${palette.name}-${color}-${index2}`,
@@ -12995,38 +12994,38 @@
       var _a, _b;
       (_b = (_a = window.electron) == null ? void 0 : _a.plugin) == null ? void 0 : _b.closeWindow();
     };
-    return React$3.createElement(
+    return React$2.createElement(
       "div",
       { className: "plugin-header" },
-      React$3.createElement("div", { className: "plugin-header-title" }, title),
-      React$3.createElement(
+      React$2.createElement("div", { className: "plugin-header-title" }, title),
+      React$2.createElement(
         "div",
         { className: "plugin-header-controls" },
-        React$3.createElement(
+        React$2.createElement(
           "button",
           { onClick: handleMinimize },
-          React$3.createElement(
+          React$2.createElement(
             "svg",
             { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2" },
-            React$3.createElement("path", { d: "M5 12h14" })
+            React$2.createElement("path", { d: "M5 12h14" })
           )
         ),
-        React$3.createElement(
+        React$2.createElement(
           "button",
           { onClick: handleMaximize },
-          React$3.createElement(
+          React$2.createElement(
             "svg",
             { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2" },
-            React$3.createElement("rect", { x: "3", y: "3", width: "18", height: "18", rx: "2", ry: "2" })
+            React$2.createElement("rect", { x: "3", y: "3", width: "18", height: "18", rx: "2", ry: "2" })
           )
         ),
-        React$3.createElement(
+        React$2.createElement(
           "button",
           { onClick: handleClose },
-          React$3.createElement(
+          React$2.createElement(
             "svg",
             { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2" },
-            React$3.createElement("path", { d: "M18 6L6 18M6 6l12 12" })
+            React$2.createElement("path", { d: "M18 6L6 18M6 6l12 12" })
           )
         )
       )
@@ -13035,19 +13034,19 @@
   const PluginApp = () => {
     const pluginData2 = window.__PLUGIN_DATA__;
     const title = (pluginData2 == null ? void 0 : pluginData2.pluginName) || "ToolBox 插件";
-    return React$3.createElement(
-      React$3.Fragment,
+    return React$2.createElement(
+      React$2.Fragment,
       null,
-      React$3.createElement(PluginHeader, { title }),
-      React$3.createElement(
+      React$2.createElement(PluginHeader, { title }),
+      React$2.createElement(
         "div",
         { className: "plugin-content" },
-        React$3.createElement(ToolPanel)
+        React$2.createElement(ToolPanel)
       )
     );
   };
   function renderStandalone() {
-    if (!React$3 || !ReactDOM) {
+    if (!React$2 || !ReactDOM) {
       console.error("React or ReactDOM is not available");
       return;
     }
@@ -13057,9 +13056,9 @@
       return;
     }
     if (ReactDOM.createRoot) {
-      ReactDOM.createRoot(root2).render(React$3.createElement(PluginApp));
+      ReactDOM.createRoot(root2).render(React$2.createElement(PluginApp));
     } else {
-      ReactDOM.render(React$3.createElement(PluginApp), root2);
+      ReactDOM.render(React$2.createElement(PluginApp), root2);
     }
   }
   const pluginData = window.__PLUGIN_DATA__;
