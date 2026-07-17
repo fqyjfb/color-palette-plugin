@@ -1,6 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import ToolPanel from './ToolPanel';
-
-const { React, ReactDOM } = window as any;
 
 const PluginHeader: React.FC<{ title: string }> = ({ title }) => {
   const handleMinimize = () => {
