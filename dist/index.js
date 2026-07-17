@@ -12952,98 +12952,37 @@
         className: `px-2.5 py-1 rounded-lg text-xs transition-colors ${activeSchemeId === scheme.id ? "bg-orange-500 text-white" : "bg-white dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-500"}`
       },
       scheme.name
-    ))))), /* @__PURE__ */ React$2.createElement("div", { className: "flex-1 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-auto p-4" }, currentScheme && /* @__PURE__ */ React$2.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center justify-between mb-3" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-base font-medium text-gray-800 dark:text-gray-200" }, currentScheme.name), /* @__PURE__ */ React$2.createElement("span", { className: "text-xs text-gray-500 dark:text-gray-400" }, currentScheme.description)), /* @__PURE__ */ React$2.createElement("div", { className: "container-items" }, currentScheme.colors.map((color, index2) => /* @__PURE__ */ React$2.createElement(
+    ))))), /* @__PURE__ */ React$2.createElement("div", { className: "flex-1 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-auto p-4" }, currentScheme && /* @__PURE__ */ React$2.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center justify-between mb-3" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-base font-medium text-gray-800 dark:text-gray-200" }, currentScheme.name), /* @__PURE__ */ React$2.createElement("span", { className: "text-xs text-gray-500 dark:text-gray-400" }, currentScheme.description)), /* @__PURE__ */ React$2.createElement("div", { className: "flex flex-wrap gap-2" }, currentScheme.colors.map((color, index2) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: `${color}-${index2}`,
-        className: "item-color",
-        style: { "--color": color },
+        className: "w-10 h-10 rounded-lg cursor-pointer border-2 border-gray-200 hover:border-gray-400 hover:scale-110 transition-transform",
+        style: { backgroundColor: color },
         "data-color": color,
         onClick: () => handleColorCardClick(color)
       }
-    )))), /* @__PURE__ */ React$2.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React$2.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "基础颜色"), /* @__PURE__ */ React$2.createElement("div", { className: "container-items" }, basicColors.map((color) => /* @__PURE__ */ React$2.createElement(
+    )))), /* @__PURE__ */ React$2.createElement("div", { className: "mb-6" }, /* @__PURE__ */ React$2.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "基础颜色"), /* @__PURE__ */ React$2.createElement("div", { className: "flex flex-wrap gap-2" }, basicColors.map((color) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: color.hex,
-        className: "item-color",
-        style: { "--color": color.hex },
+        className: "w-10 h-10 rounded-lg cursor-pointer border-2 border-gray-200 hover:border-gray-400 hover:scale-110 transition-transform",
+        style: { backgroundColor: color.hex },
         "data-color": color.name,
         onClick: () => updateColor(color.hex)
       }
-    )))), /* @__PURE__ */ React$2.createElement("div", null, /* @__PURE__ */ React$2.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "流行配色"), /* @__PURE__ */ React$2.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3" }, popularPalettes.map((palette) => /* @__PURE__ */ React$2.createElement("div", { key: palette.name, className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-3" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center justify-between mb-2" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-sm font-medium text-gray-700 dark:text-gray-300" }, palette.name)), /* @__PURE__ */ React$2.createElement("div", { className: "text-xs text-gray-500 dark:text-gray-400 mb-2" }, palette.description), /* @__PURE__ */ React$2.createElement("div", { className: "container-items" }, palette.colors.map((color, index2) => /* @__PURE__ */ React$2.createElement(
+    )))), /* @__PURE__ */ React$2.createElement("div", null, /* @__PURE__ */ React$2.createElement("h3", { className: "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3" }, "流行配色"), /* @__PURE__ */ React$2.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3" }, popularPalettes.map((palette) => /* @__PURE__ */ React$2.createElement("div", { key: palette.name, className: "bg-gray-50 dark:bg-gray-700 rounded-lg p-3" }, /* @__PURE__ */ React$2.createElement("div", { className: "flex items-center justify-between mb-2" }, /* @__PURE__ */ React$2.createElement("span", { className: "text-sm font-medium text-gray-700 dark:text-gray-300" }, palette.name)), /* @__PURE__ */ React$2.createElement("div", { className: "text-xs text-gray-500 dark:text-gray-400 mb-2" }, palette.description), /* @__PURE__ */ React$2.createElement("div", { className: "flex flex-wrap gap-2" }, palette.colors.map((color, index2) => /* @__PURE__ */ React$2.createElement(
       "button",
       {
         key: `${palette.name}-${color}-${index2}`,
-        className: "item-color",
-        style: { "--color": color },
+        className: "w-8 h-8 rounded cursor-pointer border border-gray-300 hover:border-gray-500 hover:scale-110 transition-transform",
+        style: { backgroundColor: color },
         "data-color": color,
         onClick: () => handleColorCardClick(color)
       }
     ))))))))));
   };
-  const PluginHeader = ({ title }) => {
-    const handleMinimize = () => {
-      var _a, _b;
-      (_b = (_a = window.electron) == null ? void 0 : _a.plugin) == null ? void 0 : _b.minimizeWindow();
-    };
-    const handleMaximize = () => {
-      var _a, _b;
-      (_b = (_a = window.electron) == null ? void 0 : _a.plugin) == null ? void 0 : _b.maximizeWindow();
-    };
-    const handleClose = () => {
-      var _a, _b;
-      (_b = (_a = window.electron) == null ? void 0 : _a.plugin) == null ? void 0 : _b.closeWindow();
-    };
-    return React$2.createElement(
-      "div",
-      { className: "plugin-header" },
-      React$2.createElement("div", { className: "plugin-header-title" }, title),
-      React$2.createElement(
-        "div",
-        { className: "plugin-header-controls" },
-        React$2.createElement(
-          "button",
-          { onClick: handleMinimize },
-          React$2.createElement(
-            "svg",
-            { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2" },
-            React$2.createElement("path", { d: "M5 12h14" })
-          )
-        ),
-        React$2.createElement(
-          "button",
-          { onClick: handleMaximize },
-          React$2.createElement(
-            "svg",
-            { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2" },
-            React$2.createElement("rect", { x: "3", y: "3", width: "18", height: "18", rx: "2", ry: "2" })
-          )
-        ),
-        React$2.createElement(
-          "button",
-          { onClick: handleClose },
-          React$2.createElement(
-            "svg",
-            { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2" },
-            React$2.createElement("path", { d: "M18 6L6 18M6 6l12 12" })
-          )
-        )
-      )
-    );
-  };
   const PluginApp = () => {
-    const pluginData2 = window.__PLUGIN_DATA__;
-    const title = (pluginData2 == null ? void 0 : pluginData2.pluginName) || "ToolBox 插件";
-    return React$2.createElement(
-      React$2.Fragment,
-      null,
-      React$2.createElement(PluginHeader, { title }),
-      React$2.createElement(
-        "div",
-        { className: "plugin-content" },
-        React$2.createElement(ToolPanel)
-      )
-    );
+    return React$2.createElement(ToolPanel);
   };
   function renderStandalone() {
     if (!React$2 || !ReactDOM) {

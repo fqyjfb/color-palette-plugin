@@ -254,12 +254,12 @@ const ToolPanel: FC = () => {
                 <span className="text-base font-medium text-gray-800 dark:text-gray-200">{currentScheme.name}</span>
                 <span className="text-xs text-gray-500 dark:text-gray-400">{currentScheme.description}</span>
               </div>
-              <div className="container-items">
+              <div className="flex flex-wrap gap-2">
                 {currentScheme.colors.map((color, index) => (
                   <button
                     key={`${color}-${index}`}
-                    className="item-color"
-                    style={{ '--color': color } as CSSProperties}
+                    className="w-10 h-10 rounded-lg cursor-pointer border-2 border-gray-200 hover:border-gray-400 hover:scale-110 transition-transform"
+                    style={{ backgroundColor: color } as CSSProperties}
                     data-color={color}
                     onClick={() => handleColorCardClick(color)}
                   />
@@ -270,12 +270,12 @@ const ToolPanel: FC = () => {
 
           <div className="mb-6">
             <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">基础颜色</h3>
-            <div className="container-items">
+            <div className="flex flex-wrap gap-2">
               {basicColors.map((color) => (
                 <button
                   key={color.hex}
-                  className="item-color"
-                  style={{ '--color': color.hex } as React.CSSProperties}
+                  className="w-10 h-10 rounded-lg cursor-pointer border-2 border-gray-200 hover:border-gray-400 hover:scale-110 transition-transform"
+                  style={{ backgroundColor: color.hex } as CSSProperties}
                   data-color={color.name}
                   onClick={() => updateColor(color.hex)}
                 />
@@ -292,12 +292,12 @@ const ToolPanel: FC = () => {
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{palette.name}</span>
                   </div>
                   <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">{palette.description}</div>
-                  <div className="container-items">
+                  <div className="flex flex-wrap gap-2">
                     {palette.colors.map((color, index) => (
                       <button
                         key={`${palette.name}-${color}-${index}`}
-                        className="item-color"
-                        style={{ '--color': color } as CSSProperties}
+                        className="w-8 h-8 rounded cursor-pointer border border-gray-300 hover:border-gray-500 hover:scale-110 transition-transform"
+                        style={{ backgroundColor: color } as CSSProperties}
                         data-color={color}
                         onClick={() => handleColorCardClick(color)}
                       />
