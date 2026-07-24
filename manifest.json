@@ -1,7 +1,7 @@
 {
   "id": "plugin-color-palette",
   "name": "调色板",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "颜色选择、多格式转换与配色方案生成工具",
   "author": "ToolBox Team",
   "entry": "dist/index.js",
@@ -12,5 +12,7 @@
   "categories": ["设计", "工具"],
   "tags": ["color", "palette", "design", "picker", "scheme"],
   "githubRepo": "fqyjfb/color-palette-plugin",
-  "isBeta": false
+  "isBeta": false,
+  "width": 640,
+  "height": 480
 }
